@@ -1,0 +1,21 @@
+.container {
+  outline: 2px dashed tomato;
+
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    @include mobile-up {
+        width: 320px;
+      }
+    
+      @include tablet-up {
+        width: 768px;
+
+      }
+    
+      @include desktop-up {
+        width: 1280px;
+   
+      }
+    }

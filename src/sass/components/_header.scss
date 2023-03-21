@@ -1,0 +1,372 @@
+.page-header {
+    
+
+    padding-top: 24px;
+    padding-bottom: 22px;
+
+    // border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid pink;
+}
+
+.page-header__wrapper {
+    position: relative;
+
+    @include tablet-up {
+        display: flex;
+        // justify-content: space-between;
+        gap: 48px;
+    }
+}
+
+.page-header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.375;
+
+    color: inherit;
+}
+
+// ======================================
+
+.header-form {
+// 
+outline: 1px dashed green;
+position: relative;
+width: 173px;
+height: 31px;
+
+@include tablet-up {
+    position: absolute;
+    top: 50%;
+    // left: 401px;
+    right: 122px;
+    transform: translateY(-50%);
+    width: 213px;
+}
+}
+
+.header-form__field {
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
+
+    max-width: 100%;
+    // width: 173px;
+    // height: 31px;
+    padding: 5px 0px 5px 48px;
+
+    border: 1px solid;
+    border-radius: $border-radius-big;
+
+    background-color: inherit;
+
+   
+}
+
+.header-form.is-shown .header-form__field {
+    display: block;
+}
+
+.header-form__btn {
+    outline: 1px dotted teal;
+
+    position: absolute;
+    top: 6px;
+    // left: 12px;
+
+
+    margin: 0;
+    padding: 0;
+    border: 0;
+  
+    background-color: transparent;
+    fill: inherit; 
+
+    cursor: pointer;
+
+    @media screen and (max-width: 767px) {
+        right: 0;
+    }
+
+    @include tablet-up {
+        left: 12px; 
+    }
+}
+
+.header-form.is-shown .header-form__btn {
+    display: none;
+}
+
+.header-form__icon {
+    width: 20px;
+    height: 20px;
+}
+
+// ======================================================
+
+.burger-btn {
+    outline: 1px dotted teal;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  
+    background-color: transparent;
+    color: inherit;
+    fill: inherit;
+
+    cursor: pointer;
+
+    @include tablet-up {
+        display: none;
+    }
+
+}
+
+.burger-btn__icon--close {
+    display: none;
+}
+
+// .burger-btn.is-open .burger-btn__icon--close {
+//     display: block;
+// }
+
+// .burger-btn.is-open .burger-btn__icon--open {
+//     display: none;
+// }
+
+
+
+.burger-btn__icon {
+    width: 24px;
+    height: 24px;
+}
+
+body.dark-mode {
+
+
+    .header-form__field {
+        border-color: $color-bg-primary-light;
+    }
+
+    .header-form__icon {
+        stroke: $color-bg-primary-light;
+        fill: $color-bg-primary-light;
+    }
+
+    .burger-btn {
+        stroke: $color-bg-primary-light;
+        fill: $color-bg-primary-light;
+    }
+
+} 
+
+// =================================
+
+.burger-menu {
+    outline: 2px dashed tomato;
+
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    // flex-direction: column;
+    // justify-content: space-between;
+
+    @media screen and (max-width: 767px) {
+        display: none;
+        &.is-open {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+        //   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+          height: 100vw;
+        //   position: fixed;
+        //   top: 0;
+        //   left: 0;
+        //   bottom: 0;
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+          }
+
+
+    }
+    
+}
+
+.burger-btn.is-open {
+    .burger-btn__icon--close {
+        display: flex;
+    }
+
+    .burger-btn__icon--open {
+        display: none;
+    }
+}
+
+
+.site-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    @include tablet-up {
+        flex-direction: row;
+        gap: 44px;
+    }
+}
+
+.site-nav__link {
+    outline: 1px dashed teal;
+
+    display: flex;
+    gap: 14;
+    align-items: center;
+    padding: 6px 0;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.375;
+    color: inherit;
+
+    &--current {
+        @media screen and (max-width: 767px) {
+            background-color: $color-blue-primary;
+            color: $color-bg-primary-light;
+
+            position: relative;
+
+            &::after {
+                position: absolute;
+                top: 10px;
+                right: 16px;
+
+                content: '';
+                width: 24px;
+                height: 24px;
+                display: inline-block;
+
+                // background-color: tomato;
+                background: url('../images/chevron-right.svg');
+            }
+        }
+
+
+    }
+}
+
+
+.site-nav__icon {
+    margin-left: 16px;
+    width: 32px;
+    height: 32px;
+    stroke: $color-bg-primary-light;
+    fill: $color-blue-primary;
+
+
+    @include tablet-up {
+        display: none;
+    }
+}
+
+// ======
+
+.mode-switch {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.toggle-btn {
+    position: relative;
+
+    width: 40px;
+    height: 20px;
+    border: 0.604701px solid;
+    border-radius: $border-radius-big;
+
+    border-color: $color-blue-secondary;
+    background-color: $color-white-primary;
+    cursor: pointer;
+}
+
+.toggle-btn__indicator {
+    position: absolute;
+    left: 1px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+
+    background-color: $color-blue-secondary;
+    
+}
+
+// body.dark-mode .toggle-btn {
+//     background-color: $color-blue-secondary;
+//     border-color: $color-white-primary; 
+// }
+
+// body.dark-mode .toggle-btn__indicator {
+//     left: 21px;
+//     background-color: $color-white-primary;
+// }
+
+
+.mode-switch__icon {
+    width: 21px;
+    height: 21px;
+}
+
+.mode-switch__icon--prepend {
+    stroke: $color-blue-secondary;
+    fill: $color-bg-primary-light;
+}
+
+.mode-switch__icon--upend {
+    stroke: $color-grey-secondary;
+    fill: $color-bg-primary-light;
+}
+
+// body.dark-mode .mode-switch__icon--prepend {
+//     stroke: $color-grey-secondary;
+//     fill: $color-bg-primary-dark;
+// }
+
+// body.dark-mode .mode-switch__icon--upend {
+//     stroke: $color-blue-secondary;
+//     fill: $color-bg-primary-dark;
+// }
+
+body.dark-mode {
+    .toggle-btn {
+        background-color: $color-blue-secondary;
+        border-color: $color-white-primary; 
+    }
+
+    .toggle-btn__indicator {
+        left: 21px;
+        background-color: $color-white-primary;
+    }
+
+    .mode-switch__icon--prepend {
+        stroke: $color-grey-secondary;
+        fill: $color-bg-primary-dark;
+    }
+
+    .mode-switch__icon--upend {
+        stroke: $color-blue-secondary;
+        fill: $color-bg-primary-dark;
+    }
+}
